@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: sumy MCP dependencies for Lambda
+Transform: AWS::Serverless-2016-10-31
+Parameters:
+  description:
+    Type: String
+Resources:
+  LayerSumy:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      CompatibleRuntimes:
+        - python3.12
+      ContentUri: ../src/dependencies
+      Description: !Ref description
+      LayerName: sumy-mcp-dependencies-python3
+    Metadata:
+      BuildMethod: makefile
+      BuildArchitecture: x86_64
+Outputs:
+  outLayer:
+    Value: !Ref LayerSumy

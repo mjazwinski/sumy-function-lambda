@@ -1,0 +1,9 @@
+# directories
+build
+.aws-sam
+.venv
+__pycache__
+
+# files
+*_output.yaml
+build.toml
